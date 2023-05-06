@@ -1,0 +1,184 @@
+:root {
+  --clr-black: hsla(0, 0%, 11%, 1);
+  --clr-dark-blue: hsla(215, 28%, 17%, 1);
+  --clr-ligther-blue: hsla(215, 30%, 22%, 1);
+  --clr-green: hsla(160, 84%, 39%, 1);
+  --clr-white: hsla(0, 0%, 100%, 1);
+  --clr-grey: hsla(255, 5%, 84%, 1);
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+/* set up the body */
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* CSS               */
+/* ------------------- */
+
+.main {
+  min-height: 100vh;
+  background-color: var(--clr-black);
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  background-color: var(--clr-dark-blue);
+  padding: 5rem 4rem;
+}
+
+.title {
+  color: var(--clr-white);
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.title span {
+  color: var(--clr-green);
+}
+
+.sub-title {
+  color: var(--clr-grey);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  margin-bottom: 2rem;
+  background-color: var(--clr-green);
+  color: var(--clr-white);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.input-range {
+  color: var(--clr-white);
+  padding-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.length-input {
+  accent-color: var(--clr-green);
+}
+.checks-container {
+  display: flex;
+}
+
+.checks-container > * {
+  width: 100%;
+}
+
+.checks-container p {
+  color: var(--clr-white);
+}
+
+.mycheck {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.mycheck:checked {
+  accent-color: var(--clr-green);
+}
+
+.mycheck:focus {
+  border-color: rgb(80, 67, 250);
+}
+
+.output-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--clr-ligther-blue);
+}
+
+.password-output {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-ligther-blue);
+  border-radius: 6px;
+  color: var(--clr-green);
+  min-width: 16ch;
+  min-height: 2rem;
+  text-align: center;
+}
+
+.output-container > * {
+  width: 100%;
+}
+
+@media (max-width: 440px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .output-container {
+    flex-direction: column;
+  }
+}

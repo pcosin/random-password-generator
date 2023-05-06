@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Password Generator</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <h1 class="title">
+          Generete a<br />
+          <span>random password</span>
+        </h1>
+        <p class="sub-title">Never use a insecure password again.</p>
+        <button class="btn" data-btn-generete>Generete passwords</button>
+        <p class="input-range">
+          <label for="length">Length </label
+          ><input
+            class="length-input"
+            name="length"
+            type="range"
+            min="8"
+            max="15"
+            value=""
+            step="1"
+          />
+          <span>8</span>
+        </p>
+
+        <div class="checks-container">
+          <p>
+            <input type="checkbox" class="mycheck" checked data-mycheck-numbers />
+            <label for="mycheck">Numbers</label>
+          </p>
+          <p>
+            <input type="checkbox" class="mycheck" checked data-mycheck-symbols />
+            <label for="mycheck">Symbols</label>
+          </p>
+        </div>
+        <div class="output-container" data-container-password-outup>
+          <div class="password-output" data-outupt-div></div>
+          <div class="password-output" data-outupt-div></div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
