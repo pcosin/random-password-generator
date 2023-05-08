@@ -151,7 +151,8 @@ select {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding-block: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   border-top: 1px solid var(--clr-ligther-blue);
 }
 
@@ -165,10 +166,24 @@ select {
   min-width: 16ch;
   min-height: 2rem;
   text-align: center;
+  height: 100%;
 }
 
 .output-container > * {
   width: 100%;
+}
+
+.copied {
+  visibility: hidden;
+  color: var(--clr-white);
+  text-align: center;
+  border: 1px solid var(--clr-green);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.copied.show {
+  opacity: 1;
 }
 
 @media (max-width: 440px) {

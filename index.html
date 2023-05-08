@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
     <title>Random Password Generator</title>
   </head>
   <body>
@@ -18,15 +21,16 @@
         <p class="input-range">
           <label for="length">Length </label
           ><input
+            data-slider
             class="length-input"
             name="length"
             type="range"
             min="8"
             max="15"
-            value=""
+            value="8"
             step="1"
           />
-          <span>8</span>
+          <span data-slider-number>8</span>
         </p>
 
         <div class="checks-container">
@@ -41,8 +45,8 @@
         </div>
         <div class="output-container" data-container-password-outup>
           <div class="password-output" data-outupt-div></div>
-          <div class="password-output" data-outupt-div></div>
         </div>
+        <div class="copied" data-copied>Copied!</div>
       </div>
     </main>
     <script type="module" src="/main.js"></script>

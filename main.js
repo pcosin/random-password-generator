@@ -1,10 +1,12 @@
 import "./style.css";
 
 const $btnGenerete = document.querySelector("[data-btn-generete]");
-const $containeOutput = document.querySelector("[data-container-password-outup]");
-const $divOutput = document.querySelectorAll("[data-outupt-div]");
+const $divOutput = document.querySelector("[data-outupt-div]");
 const $noNumbersCheckbox = document.querySelector("[data-mycheck-numbers]");
 const $noSymbolsCheckbox = document.querySelector("[data-mycheck-symbols]");
+const $sliderNumber = document.querySelector("[data-slider-number]");
+const $slider = document.querySelector("[data-slider]");
+const $copied = document.querySelector("[data-copied]");
 
 const characters = [
   "A",
@@ -101,23 +103,24 @@ const characters = [
 ];
 
 function randomPassword(characters, includeNumbers, includeSymbols) {
-  const lengthOfPassword = 11;
+  const lengthOfPassword = getSliderNumber();
   const lengthOfCharacters = characters.length;
   let password = "";
+  let i = 0;
 
-  for (let i = 0; i <= lengthOfPassword; i++) {
+  while (password.length < lengthOfPassword) {
     let index = Math.floor(Math.random() * lengthOfCharacters);
     let char = characters[index];
     if (!includeNumbers && /\d/.test(char)) {
-      i--;
       continue;
     }
     if (!includeSymbols && /\W/.test(char)) {
-      i--;
       continue;
     }
     password += char;
+    i++;
   }
+
   return password;
 }
 
@@ -125,19 +128,26 @@ $btnGenerete.addEventListener("click", (event) => {
   event.preventDefault();
   let includeNumbers = $noNumbersCheckbox.checked;
   let includeSymbols = $noSymbolsCheckbox.checked;
-  let resultPassword1 = randomPassword(characters, includeNumbers, includeSymbols);
-  let resultPassword2 = randomPassword(characters, includeNumbers, includeSymbols);
-  renderPassword($divOutput, resultPassword1, resultPassword2);
+  let resultPassword = randomPassword(characters, includeNumbers, includeSymbols);
+  renderPassword($divOutput, resultPassword);
+  removeCopiedText();
 });
 
-function renderPassword(containers, password1, password2) {
-  containers.forEach((container, index) => {
-    container.textContent = "";
-    let p = document.createElement("p");
-    p.classList.add("text");
-    p.textContent = index === 0 ? password1 : password2;
-    container.appendChild(p);
-  });
+function renderPassword(container, password) {
+  container.textContent = "";
+  let p = document.createElement("p");
+  p.classList.add("text");
+  p.textContent = password;
+  container.appendChild(p);
+}
+
+$slider.addEventListener("input", () => {
+  $sliderNumber.innerHTML = $slider.value;
+});
+
+function getSliderNumber() {
+  console.log($slider.value);
+  return $slider.value;
 }
 
 const copyContent = async () => {
@@ -146,6 +156,10 @@ const copyContent = async () => {
   try {
     await navigator.clipboard.writeText(text.innerHTML);
     console.log("Content copied to clipboard");
+    showCopiedText();
+    setTimeout(() => {
+      $copied.style.visibility = "hidden";
+    }, 5000);
   } catch (err) {
     console.error("Failed to copy: ", err);
   }
@@ -156,3 +170,13 @@ document.addEventListener("click", (event) => {
     copyContent();
   }
 });
+
+function showCopiedText() {
+  $copied.style.visibility = "visible";
+  $copied.classList.add("show");
+}
+
+function removeCopiedText() {
+  $copied.style.visibility = "hidden";
+  $copied.classList.remove("show");
+}
