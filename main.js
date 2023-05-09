@@ -144,7 +144,6 @@ $slider.addEventListener("input", () => {
 });
 
 function getSliderNumber() {
-  console.log($slider.value);
   return $slider.value;
 }
 
@@ -153,7 +152,6 @@ const copyContent = async () => {
   if (!text) return;
   try {
     await navigator.clipboard.writeText(text.innerHTML);
-    console.log("Content copied to clipboard");
     showCopiedText();
     setTimeout(() => {
       $copied.style.visibility = "hidden";
