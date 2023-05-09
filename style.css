@@ -1,8 +1,8 @@
 :root {
   --clr-black: hsla(0, 0%, 11%, 1);
-  --clr-dark-blue: hsla(215, 28%, 17%, 1);
+  --clr-dark-blue: hsl(215, 28%, 17%);
   --clr-ligther-blue: hsla(215, 30%, 22%, 1);
-  --clr-green: hsla(160, 84%, 39%, 1);
+  --clr-green: hsl(160, 84%, 39%);
   --clr-white: hsla(0, 0%, 100%, 1);
   --clr-grey: hsla(255, 5%, 84%, 1);
 }

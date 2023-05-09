@@ -1,5 +1,3 @@
-import "./style.css";
-
 const $btnGenerete = document.querySelector("[data-btn-generete]");
 const $divOutput = document.querySelector("[data-outupt-div]");
 const $noNumbersCheckbox = document.querySelector("[data-mycheck-numbers]");
